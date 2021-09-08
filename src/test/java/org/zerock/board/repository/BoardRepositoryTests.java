@@ -16,8 +16,6 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.IntStream;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 @SpringBootTest
 public class BoardRepositoryTests {
     @Autowired
@@ -43,7 +41,7 @@ public class BoardRepositoryTests {
         }
     }
 
-    /*@Test
+    @Test
     public void testGetBoardWithWriter(){
         Object result = boardRepository.getBoardWithWriter(100L);
         Object[] arr = (Object[]) result;
@@ -56,7 +54,7 @@ public class BoardRepositoryTests {
         for(Object[] arr : result){
             System.out.println(Arrays.toString(arr));
         }
-    }*/
+    }
 
     @Test
     public void testGetBoardWithReplyCount(){
