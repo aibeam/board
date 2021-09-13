@@ -10,24 +10,32 @@ public interface BoardService {
     Long register(BoardDTO dto);
 
     PageResultDTO<BoardDTO, Object[]> getList(PageRequestDTO pageRequestDTO);
-
-    BoardDTO get(Long bno); //상세 보기
-    void removeWithReplies(Long bno); //댓글 삭제
-    void modify(BoardDTO boardDTO); //수정
+    BoardDTO get(Long bno); //상세보기
+    void removeWithReplies(Long bno); //댓글삭제
+    void modify(BoardDTO dto); //수정
 
     default Board dtoToEntity(BoardDTO dto){
         Member member = Member.builder().email(dto.getWriterEmail()).build();
-        Board board = Board.builder().bno(dto.getBno()).title(dto.getTitle())
-                .content(dto.getContent()).writer(member).build();
+        Board board = Board.builder()
+                .bno(dto.getBno())
+                .title(dto.getTitle())
+                .content(dto.getContent())
+                .writer(member)
+                .build();
         return board;
     }
 
-    default BoardDTO entityToDTO(Board board, Member member, Long replyCount){
-        BoardDTO boardDTO = BoardDTO.builder().bno(board.getBno())
-                .title(board.getTitle()).content(board.getContent())
-                .regDate(board.getRegDate()).modDate(board.getModDate())
-                .writerEmail(member.getEmail()).writerName(member.getName())
-                .replyCount(replyCount.intValue()).build();
+    default BoardDTO entityToDTO(Board board, Member member, Long replyCount) {
+        BoardDTO boardDTO = BoardDTO.builder()
+                .bno(board.getBno())
+                .title(board.getTitle())
+                .content(board.getContent())
+                .regDate(board.getRegDate())
+                .modDate(board.getModDate())
+                .writerEmail(member.getEmail())
+                .writerName(member.getName())
+                .replyCnt(replyCount.intValue())
+                .build();
         return boardDTO;
     }
 }

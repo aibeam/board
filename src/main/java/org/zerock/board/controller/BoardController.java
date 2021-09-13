@@ -40,9 +40,9 @@ public class BoardController {
         return "redirect:/board/list";
     }
 
-    @GetMapping({"/read", "/modify"})
-    public void read(@ModelAttribute("requestDTO") PageRequestDTO requestDTO,
-                     Long bno, Model model) {
+    @GetMapping({"/read","/modify"})
+    public void read(Long bno, Model model,
+                     @ModelAttribute("requestDTO") PageRequestDTO requestDTO) {
         log.info("bno: "+bno);
         BoardDTO boardDTO = boardService.get(bno);
         log.info(boardDTO);

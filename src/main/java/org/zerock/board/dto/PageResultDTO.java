@@ -23,7 +23,7 @@ public class PageResultDTO<DTO, EN> {
     private int start, end;
     //이전, 다음
     private boolean prev, next;
-    //페이지번호목록
+    //페이지 번호 목록
     private List<Integer> pageList;
 
     public PageResultDTO(Page<EN> result, Function<EN, DTO> fn) {
