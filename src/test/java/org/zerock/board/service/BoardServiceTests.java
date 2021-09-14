@@ -8,6 +8,8 @@ import org.zerock.board.dto.PageRequestDTO;
 import org.zerock.board.dto.PageResultDTO;
 import org.zerock.board.entity.Board;
 
+import javax.transaction.Transactional;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
@@ -45,6 +47,7 @@ public class BoardServiceTests {
         boardService.removeWithReplies(bno);
     }
 
+    @Transactional
     @Test
     public void testModify() {
         BoardDTO boardDTO = BoardDTO.builder()

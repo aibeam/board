@@ -18,7 +18,7 @@ import org.zerock.board.repository.ReplyRepository;
 import java.util.Optional;
 import java.util.function.Function;
 
-@Service
+@Service //이게 이써야 ㅁ프록시우앵ㅇ... 스프링객체.,? 만들 수 ㅣㅆ다
 @RequiredArgsConstructor
 @Log4j2
 public class BoardServiceImpl implements BoardService{
@@ -72,6 +72,4 @@ public class BoardServiceImpl implements BoardService{
             repository.save(board);
         }
     }
-
-
 }
